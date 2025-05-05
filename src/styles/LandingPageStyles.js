@@ -6,6 +6,7 @@ export const Container = styled.div`
   background: #000;
 `;
 
+
 export const Section = styled.section`
   min-height: 80vh;
   display: flex;
@@ -42,6 +43,60 @@ export const Title = styled.h1`
   
   @media (max-width: 768px) {
     font-size: 2.5rem;
+  }
+`;
+
+export const ExpertsSection = styled.section`
+  background: linear-gradient(180deg, #181818 0%, #f7f4ed 100%);
+  color: #222;
+  padding: 80px 0 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const ExpertsTitle = styled.h2`
+  font-size: 2.3rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+  color: #222;
+  letter-spacing: 1px;
+  text-align: center;
+`;
+
+export const ExpertsGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px 48px;
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+    gap: 28px 0;
+  }
+  align-items: end; /* Ensures doctor names align at the bottom */
+`;
+
+export const ExpertQuote = styled.div`
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  min-height: 90px; /* Adjust as needed for your content */
+`;
+
+export const ExpertAttribution = styled.div`
+  font-size: 1rem;
+  color: #3a5a7a; /* Muted blue */
+  font-style: normal;
+  font-weight: 600;
+  a {
+    color: #3a5a7a;
+    text-decoration: underline;
+    &:hover {
+      color: #1a3a5a;
+    }
   }
 `;
 
@@ -552,6 +607,7 @@ export const BackHomeLink = styled.a`
     color: #ccc;
   }
 `;
+
 
 
 // ... (copy all other styled components from LandingPage.js)

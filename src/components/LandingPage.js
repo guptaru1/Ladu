@@ -4,6 +4,7 @@ import OatmealBowl from './OatmealBowl';
 import AyurvedicLeaf from './AyurvedicLeaf';
 import * as S from '../styles/LandingPageStyles';
 import styled from 'styled-components';
+import expertQuotes from './expertQuotes';
 
 const LandingPage = () => {
   const [email, setEmail] = useState('');
@@ -66,6 +67,8 @@ const LandingPage = () => {
       desc: "A powerful adaptogen traditionally used to help the body manage stress. Ashwagandha may support energy, mood, and cortisol balance while promoting overall vitality."
     },
   ];
+
+
 
   const [ingredientIndex, setIngredientIndex] = useState(0);
 
@@ -188,15 +191,40 @@ const LandingPage = () => {
         </S.IngredientsRight>
       </S.IngredientsSection>
 
-      <S.Section background="#111">
-        <S.AnimatedContent className="animated-content" direction="right">
-          <S.Title>Overnight Oats</S.Title>
-          <S.Subtitle>Explore a world of flavors in every bite with our unique oatmeal blends.</S.Subtitle>
-        </S.AnimatedContent>
-      </S.Section>
+
+
+      <S.ExpertsSection>
+  <S.ExpertsTitle>What the experts are saying</S.ExpertsTitle>
+  <S.ExpertsGrid>
+    {expertQuotes.map((item, idx) => (
+      <div key={idx}>
+        <S.ExpertQuote>
+          “{item.quote}”
+        </S.ExpertQuote>
+        <S.ExpertAttribution>
+          — <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.name}
+              </a>
+        </S.ExpertAttribution>
+      </div>
+    ))}
+  </S.ExpertsGrid>
+</S.ExpertsSection>
 
       
 {/*
+
+      <S.Section background="#111">
+        <S.AnimatedContent className="animated-content" direction="right">
+          <S.Title>What the Experts Are Saying</S.Title>
+          <S.Subtitle>Explore a world of flavors in every bite with our unique oatmeal blends.</S.Subtitle>
+        </S.AnimatedContent>
+      </S.Section>
+      
 <S.Section background="#000">
   <S.AnimatedContent className="animated-content" direction="left">
     <S.Title>Wall of Love</S.Title>
