@@ -13,16 +13,49 @@ const WhyZeva = () => {
         <S.DiaryMargin />
         <S.DiaryTitle>Why ZeVa?</S.DiaryTitle>
         <S.DiaryEntry>
-          <strong>April 27th, 2024</strong><br />
-          Today, I reflected on why we started ZeVa Oats. It's about more than just breakfast—it's about real, honest ingredients and a return to mindful nourishment.<br /><br />
-          We carefully select every ingredient, like <strong>collagen peptides</strong> for strength, <strong>grape seed extract</strong> for antioxidants, and <strong>pine bark extract</strong> for overall wellness. Each choice is backed by science and tradition.<br /><br />
-          <em>"Let food be thy medicine and medicine be thy food."</em><br /><br />
-          Curious about the science? Read more about the benefits of grape seed extract in this study: <S.DiaryLink href="https://www.sciencedirect.com/science/article/abs/pii/S0308814621024651" target="_blank" rel="noopener noreferrer">@ScienceDirect</S.DiaryLink>
+       
+          <em>"Let food be thy medicine and medicine be thy food."</em>
+          <br />
+          I’ve always loved oats—comforting, simple, wholesome.
+          But at some point, I stopped reaching for them.
+        <br />
+        Not because I didn’t enjoy them, but because they no longer served me.
+        <br />
+        Too much sugar. Too many carbs.
+        And not enough of what actually fuels a focused, healthy day.
+        <br />
+
+        But after digging into the research, I realized something powerful:
+        <br />
+        🌿 Oats can do more. Be more.
+        <br />
+        They can be functional. Balanced. Truly nourishing.
+        That’s when ZeVa Oats was born.
+        <br /><br />
+
+
+        ✨ What Makes ZeVa Different?
+        <br />
+        <br />
+        No Added Sugar: Ever.
+        <br />
+        Lion’s Mane: Boost your focus, clarity, and memory—naturally
+        <br />
+        Ashwagandha: The ancient adaptogen for stress relief, balanced mood, and vitality
+        <br />
+        Protien: Support lean muscle. As a vegetarian, I know how tough it can be to get enough protein. That’s why ZeVa Oats is packed with plant-based protein, making it easy to stay nourished, no matter how busy your day gets.
+
+
+
+        <br />
+        <br />
+        Because breakfast shouldn’t just fill you up.
+        It should fuel who you're becoming.
+        <br />
+        For the Morning Hustlers and Midnight Dreamers.
+        <br/>
         </S.DiaryEntry>
-        <S.DiaryEntry>
-          <strong>April 20th, 2024</strong><br />
-          Our journey is a blend of ancient wisdom and modern nutrition. Every batch is a page in our story—crafted with care, for you.
-        </S.DiaryEntry>
+
       </S.DiaryNotebook>
     </S.DiaryPage>
   );

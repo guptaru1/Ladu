@@ -15,9 +15,9 @@ const expertQuotes = [
       url: "https://www.theguardian.com/lifeandstyle/article/2024/jul/13/five-doctors-on-the-health-supplements-they-swear-by?utm_source=chatgpt.com"
     },
     {
-      quote: "In Ayurveda, ashwagandha is considered a Rasayana, which means it's powerful for rejuvenation... By nourishing the nervous system, it supports both physical rest and mental calm.",
-      name: "Dr. Shivani Misra",
-      url: "https://www.glamour.com/story/i-tried-ashwagandha-to-make-me-sleepy?utm_source=chatgpt.com"
+      quote: "Sacha Inchi is a complete source of protein, providing all nine essential amino acids, to help you build muscle mass, and strength, and improve body composition.”",
+      name: "Swolverine Health Blog",
+      url: "https://swolverine.com/blogs/blog/what-is-sacha-inchi-protein?srsltid=AfmBOopKXOB6uTk7ZbWuU2V8o3zkxb9yJFYE86DPGMpEa2cypH9dikBL"
     }
   ];
   

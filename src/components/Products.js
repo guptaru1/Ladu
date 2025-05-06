@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import * as S from '../styles/LandingPageStyles';
 import { useNavigate, Link } from 'react-router-dom';
+import ZevaOatsImg from '../images/Zeva-Oats.png';
+import DarkchocImg from '../images/Dark-choc.png';
 
 const Products = () => {
   const [activeTab, setActiveTab] = useState('sweet');
@@ -11,8 +13,8 @@ const Products = () => {
       {
         id: 1,
         title: "Dark Cacao",
-        tagline: "Your chai, reimagined.",
-        image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        tagline: "The sweetness without the sugar spike.",
+        image: DarkchocImg,
         description: "Rich chocolate flavor meets nutritious oats. A guilt-free way to satisfy your chocolate cravings in the morning.",
         price: "$7.49"
       },
@@ -21,18 +23,10 @@ const Products = () => {
         id: 2,
         title: "Gulab Date Delight",
         tagline: "Romance your morning",
-        image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: ZevaOatsImg,
         description: "A delicate blend of rose water, soft dates, and crunchy pistachios with a kiss of cardamom. Inspired by the rich flavors of Indian mithai, this bowl is where breakfast meets poetry. Packed with antioxidants and natural sweetness from seasonal berries.",
         price: "$7.99"
-      },
-      {
-        id: 3,
-        title: "Masala Chai Oats",
-        tagline: "Your chai, reimagined.",
-        image: "https://images.unsplash.com/photo-1517093602195-b40af9261bdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        description: "Wake up to the aroma of real masala chai — with cardamom, cinnamon, ginger, and cloves. Cozy, creamy, and caffeine-free comfort in every bite.",
-        price: "$6.99"
-      },
+      }
 
     ],
     savoury: [
@@ -143,29 +137,42 @@ const Products = () => {
             </S.ProductTab>
           </S.ProductTabs>
 
-          <S.ProductCarousel>
-            <S.CarouselButton className="left" onClick={handlePrevProduct}>
-              ←
-            </S.CarouselButton>
-            
-            <S.ProductImage>
-              <img src={currentProductData.image} alt={currentProductData.title} />
-            </S.ProductImage>
-            
-            <S.ProductInfo>
-              <S.ProductTitle>{currentProductData.title}</S.ProductTitle>
-              <div style={{ fontStyle: 'italic', color: '#e2c275', marginBottom: 10 }}>
-                {currentProductData.tagline}
-              </div>
-              <S.ProductDescription>{currentProductData.description}</S.ProductDescription>
-              <S.ProductPrice>{currentProductData.price}</S.ProductPrice>
-              <S.ProductButton>Add to Cart</S.ProductButton>
-            </S.ProductInfo>
-            
-            <S.CarouselButton className="right" onClick={handleNextProduct}>
-              →
-            </S.CarouselButton>
-          </S.ProductCarousel>
+          {activeTab === 'savoury' || activeTab === 'kids' ? (
+            <div style={{
+              width: '100%',
+              textAlign: 'center',
+              color: '#fff',
+              fontSize: '2rem',
+              fontWeight: 700,
+              padding: '60px 0'
+            }}>
+              COMING SOON
+            </div>
+          ) : (
+            <S.ProductCarousel>
+              <S.CarouselButton className="left" onClick={handlePrevProduct}>
+                ←
+              </S.CarouselButton>
+              
+              <S.ProductImage>
+                <img src={currentProductData.image} alt={currentProductData.title} />
+              </S.ProductImage>
+              
+              <S.ProductInfo>
+                <S.ProductTitle>{currentProductData.title}</S.ProductTitle>
+                <div style={{ fontStyle: 'italic', color: '#e2c275', marginBottom: 10 }}>
+                  {currentProductData.tagline}
+                </div>
+                <S.ProductDescription>{currentProductData.description}</S.ProductDescription>
+                <S.ProductPrice>{currentProductData.price}</S.ProductPrice>
+                <S.ProductButton>Add to Cart</S.ProductButton>
+              </S.ProductInfo>
+              
+              <S.CarouselButton className="right" onClick={handleNextProduct}>
+                →
+              </S.CarouselButton>
+            </S.ProductCarousel>
+          )}
         </S.AnimatedContent>
       </S.Section>
     </S.Container>

@@ -5,48 +5,48 @@ import AyurvedicLeaf from './AyurvedicLeaf';
 import * as S from '../styles/LandingPageStyles';
 import styled from 'styled-components';
 import expertQuotes from './expertQuotes';
+import Oatmeal from '../images/oatmeal.png';
 
 const LandingPage = () => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [displayText, setDisplayText] = useState('');
+  const [currentTagline, setCurrentTagline] = useState(0);
   const navigate = useNavigate();
 
   const typingText = "Breakfast designed for deep work";
-  const typingSpeed = 80;
+  const typingSpeed = 75;
+
+  const taglines = [
+    "No Sugar.",
+    "No Soy.",
+    "No GMOs.",
+    "No Gums.",
+    "No Artificial Anything.",
+    "No Fillers.",
+  ];
 
   const articles = [
     {
-      id: 2,
-      title: "Ayurvedic Benefits",
+      id: 1,
+      title: "Oats and Glyphosate",
       image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      text: "Learn about the ancient wisdom of Ayurveda and how it enhances our oatmeal recipes."
+      text: "Learn more about glyphosate in Oats and if you should be worried?."
     },
     {
-      id: 3,
-      title: "Healthy Breakfast Habits",
+      id: 2,
+      title: "Protein in Vegeterians",
       image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       text: "Start your day right with these simple yet effective breakfast habits."
     },
     {
-      id: 4,
-      title: "Protein-Packed Morning",
+      id: 3,
+      title: "Sacha Inchi: A Super Seed for Growing Kids",
       image: "https://images.unsplash.com/photo-1494390248081-4e521a5940db?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      text: "Why protein is essential for your morning routine and how to incorporate it."
+      text: "Explore why this plant-based powerhouse could be a game-changer in supporting natural growth and development in children."
     },
-    {
-      id: 5,
-      title: "Superfood Ingredients",
-      image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      text: "Explore the superfood ingredients that make our oats special."
-    },
-    {
-      id: 6,
-      title: "Meal Prep Made Easy",
-      image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      text: "Simplify your mornings with these easy meal prep tips for overnight oats."
-    }
+
   ];
 
   const ingredients = [
@@ -72,6 +72,9 @@ const LandingPage = () => {
 
   const [ingredientIndex, setIngredientIndex] = useState(0);
 
+  const articlesPerPage = 3;
+  const totalSlides = Math.ceil(articles.length / articlesPerPage);
+
   useEffect(() => {
     let currentIndex = 0;
     let timeout;
@@ -90,12 +93,21 @@ const LandingPage = () => {
   }, []);
 
   const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? Math.ceil(articles.length / 3) - 1 : prev - 1));
+    setCurrentSlide(prev =>
+      prev === 0 ? totalSlides - 1 : prev - 1
+    );
   };
 
   const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev === Math.ceil(articles.length / 3) - 1 ? 0 : prev + 1));
+    setCurrentSlide(prev =>
+      prev === totalSlides - 1 ? 0 : prev + 1
+    );
   };
+
+  const visibleArticles = articles.slice(
+    currentSlide * articlesPerPage,
+    currentSlide * articlesPerPage + articlesPerPage
+  );
 
   const handlePrevIngredient = () => {
     setIngredientIndex(idx => idx === 0 ? ingredients.length - 1 : idx - 1);
@@ -124,6 +136,14 @@ const LandingPage = () => {
     });
 
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTagline(prev => (prev + 1) % taglines.length);
+    }, 5000); // 5 seconds
+  
+    return () => clearInterval(interval);
   }, []);
 
   const handleSubmit = async (e) => {
@@ -167,7 +187,27 @@ const LandingPage = () => {
             {displayText}
             {displayText.length < typingText.length && <span className="cursor">|</span>}
           </S.TypingText>
-          <OatmealBowl />
+          <img
+  src={Oatmeal}
+  alt="Oatmeal bowl"
+  style={{
+    width: 220,
+    height: 220,
+    display: 'block',
+    margin: '0 auto'
+  }}
+/>
+                <div style={{
+        fontSize: '1.3rem',
+        color: '#fff',
+        fontWeight: 600,
+        marginTop: 12,
+        minHeight: 32,
+        letterSpacing: '0.5px',
+        transition: 'opacity 0.5s'
+      }}>
+        {taglines[currentTagline]}
+      </div>
         </S.AnimatedContent>
       </S.Section>
 
@@ -237,7 +277,7 @@ const LandingPage = () => {
 
       <S.ArticleSection background="#111">
         <S.AnimatedContent className="animated-content" direction="left">
-          <S.Title>The ZeV̇a Journal</S.Title>
+          <S.Title>The ZeV̇a Wellness Journal </S.Title>
           <S.Subtitle></S.Subtitle>
           
           <S.ArticleCarousel>
@@ -246,14 +286,14 @@ const LandingPage = () => {
             </S.CarouselButton>
             
             <S.ArticleContainer style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-              {articles.slice(currentSlide * 3, (currentSlide * 3) + 3).map((article) => (
+              {visibleArticles.map((article) => (
                 <S.ArticleCard key={article.id}>
                   <S.ArticleImage src={article.image} alt={article.title} />
                   <S.ArticleContent>
                     <S.ArticleTitle>{article.title}</S.ArticleTitle>
                     <S.ArticleText>{article.text}</S.ArticleText>
-                    <S.ReadMoreButton onClick={() => navigate(`/article/${article.id}`)}>
-                      Read More
+                    <S.ReadMoreButton as={Link} to={`/article/${article.id}`}>
+                       Read More
                     </S.ReadMoreButton>
                   </S.ArticleContent>
                 </S.ArticleCard>
