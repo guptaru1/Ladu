@@ -16,7 +16,7 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   const typingText = "Breakfast designed for deep work";
-  const typingSpeed = 75;
+  const typingSpeed = 65;
 
   const taglines = [
     "No Sugar.",
@@ -51,10 +51,6 @@ const LandingPage = () => {
 
   const ingredients = [
     {
-      name: "Lion's Mane",
-      desc: "A functional mushroom known to support brain health, memory, and focus. Lion's Mane may promote neurogenesis and help combat mental fatigue — perfect for deep work and clarity."
-    },
-    {
       name: "Sacha Inchi",
       desc: `Sacha Inchi is a rich natural protein source that is grain free, paleo friendly, and easily digestible. Sacha inchi is considered a complete protein because it contains all nine essential amino acids and in addition to that has high amounts of omega-3 fatty acid. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0308814621024651" target="_blank" rel="noopener noreferrer" style="color:#8b5c2a;text-decoration:underline black">Source</a>`
     },
@@ -63,8 +59,8 @@ const LandingPage = () => {
       desc: "An adaptogenic herb revered in Ayurveda for its calming and balancing effects. Tulsi may help the body adapt to stress and support immune and respiratory health."
     },
     {
-      name: "Ashwagandha",
-      desc: "A powerful adaptogen traditionally used to help the body manage stress. Ashwagandha may support energy, mood, and cortisol balance while promoting overall vitality."
+      name: "Brahmi",
+      desc: "A powerful adaptogen traditionally used to help the body manage stress. Brahmi may support energy, mood, and cortisol balance while promoting overall vitality."
     },
   ];
 
@@ -182,7 +178,7 @@ const LandingPage = () => {
 
       <S.Section background="#000">
         <S.AnimatedContent className="animated-content" direction="left">
-        <S.Title>ZeV̇a Oats</S.Title>
+        <S.Title>ZॐVA Oats</S.Title>
           <S.TypingText>
             {displayText}
             {displayText.length < typingText.length && <span className="cursor">|</span>}
@@ -216,7 +212,7 @@ const LandingPage = () => {
         <S.IngredientsLeft>
           <S.IngredientsTitle>Rooted in Nature. Backed by Science.</S.IngredientsTitle>
           <S.IngredientsIntro>
-          ZeV̇a blends modern wellness with ancient wisdom — using clean, earth-grown ingredients like Adaptogens, Ayurvedic herbs and plant-based Proteins. Each spoonful is crafted to support clarity, balance, and vitality - the way nature intended.
+          ZॐVA blends modern wellness with ancient wisdom — using clean, earth-grown ingredients like Adaptogens, Ayurvedic herbs and plant-based Proteins. Each spoonful is crafted to support clarity, balance, and vitality - the way nature intended.
           </S.IngredientsIntro>
         </S.IngredientsLeft>
         <S.IngredientsRight>
@@ -277,7 +273,7 @@ const LandingPage = () => {
 
       <S.ArticleSection background="#111">
         <S.AnimatedContent className="animated-content" direction="left">
-          <S.Title>The ZeV̇a Wellness Journal </S.Title>
+          <S.Title>The ZॐVA Wellness Journal </S.Title>
           <S.Subtitle></S.Subtitle>
           
           <S.ArticleCarousel>
@@ -309,8 +305,8 @@ const LandingPage = () => {
       
       <S.Section background="#111">
         <S.AnimatedContent className="animated-content" direction="right">
-          <S.Title>Power your AM. Own your PM. </S.Title>
-          <S.Subtitle>Tired of burnout, but too busy for breakfast? ZeV̇a fuels clarity in every spoon.</S.Subtitle>
+          <S.Title> Ancient Herbs. Modern Focus. </S.Title>
+          <S.Subtitle>Tired of burnout, but too busy for breakfast? ZॐVA fuels clarity in every spoon.</S.Subtitle>
           {!submitted ? (
             <S.WaitlistForm>
               <S.Input
